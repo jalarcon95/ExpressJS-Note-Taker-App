@@ -9,7 +9,7 @@
   * [Installation](#install)
   * [Usage](#usage)
   * [Credits](#credits)
-  * [Testing](#test)
+  * [Website Link](#websitelink)
   
   * [License](#license)
 
@@ -28,11 +28,10 @@
 
   John Alarcon Github: https://github.com/jalarcon95 Email: n/a
 
-  ## [Testing](#table-of-contents)
+  ## [Website Link](#table-of-contents)
 
-  n/a
+  Deployed Link on Heroku: [Click Here](https://expressjs-note-taker-app-c8bd14d25474.herokuapp.com/)
 
-  
   ## [License](#table-of-contents)
     
   The application is covered under the following license:

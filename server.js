@@ -7,23 +7,23 @@ const app = express();
 
 const allNotes = require('./db/db.json');
 
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
-app.get('/api/notes', (req,res) => {
+app.get('/api/notes', (req, res) => {
     res.json(allNotes.slice(1));
 });
 
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(_dirname, './public/index.html'));
 });
 
-app.get('/notes', (req,res) => {
+app.get('/notes', (req, res) => {
     res.sendFile(path.join(_dirname, './public/notes.html'));
 });
 
-app.get('*', (req,res) => {
+app.get('*', (req, res) => {
     res.sendFile(path.join(_dirname, './public/notes.html'));
 });
 
@@ -59,7 +59,7 @@ function deleteNote(id, notesArray) {
 
         if (note.id == id) {
             notesArray.splice(i, 1);
-        fs.writeFileSync(
+            fs.writeFileSync(
             path.join(_dirname, '.db/db.json'),
             JSON.stringify(notesArray, null, 2)
         );
@@ -70,7 +70,7 @@ function deleteNote(id, notesArray) {
     }
 }
 
-app.delete('/api/notes/:id' , (res,req) => {
+app.delete('/api/notes/:id', (req, res) => {
     deleteNote(req.params.id, allNotes);
     res.json(true);
 });

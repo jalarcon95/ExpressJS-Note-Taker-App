@@ -3,24 +3,36 @@ const app = express();
 const fs = require('fs');
 const path = require('path');
 const PORT = process.env.PORT || 3001;
+const allNotes = require('./db/db.json');
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-
-const allNotes = require('./db/db');
+app.use(express.static('public'));
 
 function createNewNote(body, notesArray) {
     const newNote = body;
     notesArray.push(newNote);
     fs.writeFileSync(
         path.join(_dirname, './db/db.json'),
-        JSON.stringify({allNotes: notesArray }, null, 2)
+        JSON.stringify(notesArray, null, 2)
     );
     return newNote;
 }
 
 app.get('/api/notes', (req,res) => {
     res.json(allNotes);
+});
+
+app.get('/', (req,res) => {
+    res.sendFile(path.join(_dirname, './public/index.html'));
+});
+
+app.get('/notes', (req,res) => {
+    res.sendFile(path.join(_dirname, './public/notes.html'));
+});
+
+app.get('*', (req,res) => {
+    res.sendFile(path.join(_dirname, './public/notes.html'));
 });
 
 app.post('api/notes', (req,res) => {

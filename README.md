@@ -19,7 +19,7 @@
 
   ## [Installation](#table-of-contents)
 
-  Node required, ExpressJS required, Heroku account required. 
+  Node required, ExpressJS required, Heroku account required. User must have all required packages installed prior to running the application.
   ## [Usage](#table-of-contents)
 
   The user can take notes in this app by: typing a note title, and typing out the details. Each note can be saved, edited, and deleted. All user input is stored in the user's local machine. 
